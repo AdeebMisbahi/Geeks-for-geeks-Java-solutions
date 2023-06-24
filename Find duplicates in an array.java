@@ -69,6 +69,36 @@ class Solution {
 // or
 
 
+
+
+class Solution {
+    public static ArrayList<Integer> duplicates(int arr[], int n) {
+        // code here
+        ArrayList<Integer> res = new ArrayList();
+        int[] brr=new int[n];
+        
+        for(int i=0;i<n;i++) {
+            brr[arr[i]]++;
+        }
+        
+        for(int i=0;i<n;i++) {
+            if(brr[i]>1) {
+                res.add(i);
+            }
+        }
+        if(res.size()==0) {
+            res.add(-1);
+        }
+        return res;
+    }
+}
+
+
+
+
+// or
+
+
 class Solution {
     public static ArrayList<Integer> duplicates(int arr[], int n) {
         // code here
