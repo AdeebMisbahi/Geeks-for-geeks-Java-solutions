@@ -48,13 +48,12 @@ class Solution
         
         for(int i=0; i<n; i++){
             sum+=arr[i];
-            if(sum>s && j<n){
-                while(sum>s && j<n){
+          
+                while(sum>s && j<i){
                     sum-=arr[j];  /* Now sum is rightSum */
                     j++;
                 }
-                
-            }
+          
             if(sum==s){
                 list.add(j+1);    /* i+1 and j+1 for starting Index from index 1*/
                 list.add(i+1);
