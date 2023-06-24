@@ -29,6 +29,49 @@ If no such element is found, return list containing [-1].
 Expected Time Complexity: O(n).
 Expected Auxiliary Space: O(n)
 */
+class Solution {
+    public static ArrayList<Integer> duplicates(int arr[], int n) {
+        // code here
+        
+          // code here
+          if(n==0){
+            return new ArrayList<Integer>();
+        }
+        TreeMap<Integer,Integer> hm = new TreeMap<>();
+        ArrayList<Integer> ans = new ArrayList<>();
+        boolean flag=false;
+        for(int i=0;i<n;i++){
+            if(hm.containsKey(arr[i])){
+               hm.put(arr[i],hm.get(arr[i])+1); 
+            }
+            else{
+                hm.put(arr[i],1);
+            }
+        }
+        
+        for(Map.Entry mapElement:hm.entrySet()){
+            int key=((int)mapElement.getKey());
+            int val=((int)mapElement.getValue());
+            if(val>1){
+                ans.add(key);
+                flag=true;
+            }
+        }
+        if(!flag){
+            ans.add(-1);
+        }
+        
+        return ans;
+    }
+}
+
+
+
+
+
+
+
+// or
 
 
 class Solution {
