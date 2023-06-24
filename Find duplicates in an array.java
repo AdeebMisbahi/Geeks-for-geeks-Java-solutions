@@ -62,3 +62,28 @@ class Solution {
 
     }
 }
+
+
+
+
+// or
+
+
+class Solution {
+    public static ArrayList<Integer> duplicates(int arr[], int n) {
+        // code here
+        ArrayList<Integer> list=new ArrayList<>();
+        int mx=Integer.MIN_VALUE;
+        for (int i=0;i<n;i++) {
+            mx=Math.max(mx,arr[i]);
+        }
+        int a[]=new int[mx+1];
+        for(int ele:arr) a[ele]++;
+        for(int i=0;i<=mx;i++) {
+            if (a[i]>1) list.add(i);
+        }
+        if (list.size()==0) list.add(-1);
+        return list;
+        
+    }
+}
