@@ -31,6 +31,53 @@ is 15.
 
 
 // https://practice.geeksforgeeks.org/problems/subarray-with-given-sum-1587115621/1/?track=amazon-arrays&batchId=192
+
+
+class Solution
+{
+    //Function to find a continuous sub-array which adds up to a given number.
+    static ArrayList<Integer> subarraySum(int[] arr, int n, int s) 
+    {
+        int j=0; 
+        int sum=0;
+        ArrayList<Integer> list=new ArrayList <>();
+        if(s==0){
+            list.add(-1);
+            return list;
+        }
+        
+        for(int i=0; i<n; i++){
+            sum+=arr[i];
+            if(sum>s && j<n){
+                while(sum>s && j<n){
+                    sum-=arr[j];  /* Now sum is rightSum */
+                    j++;
+                }
+                
+            }
+            if(sum==s){
+                list.add(j+1);    /* i+1 and j+1 for starting Index from index 1*/
+                list.add(i+1);
+                return list;
+            }
+        }
+        list.add(-1);
+        return list;
+    }
+}
+
+
+
+
+
+
+
+
+
+// ORR
+
+
+
 void subarraySum(int arr[], int n, int sum){
     
        /* Initialize curr_sum as value of  
